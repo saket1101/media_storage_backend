@@ -3,6 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AuthModule } from './auth/auth.module';
+import { MediaModule } from './media/media.module';
 
 @Module({
   imports: [
@@ -17,7 +19,9 @@ import { MongooseModule } from '@nestjs/mongoose';
         }
         return { uri };
       },
-    })
+    }),
+    AuthModule,
+    MediaModule
     
   ],
   controllers: [AppController],
